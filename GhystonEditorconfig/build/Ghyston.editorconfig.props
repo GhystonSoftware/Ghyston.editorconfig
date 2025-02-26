@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Target Name="CreateEditorConfig" BeforeTargets="BeforeBuild">
+        <PropertyGroup>
+            <EditorConfigFile>$(MSBuildProjectDirectory)\.editorconfig</EditorConfigFile>
+            <EditorConfigOverrides>$(MSBuildProjectDirectory)\.editorconfig.overrides</EditorConfigOverrides>
+            <SeparatorMessage>
+#
+#
+##########################################
+# Overrides from .editorconfig.overrides #
+##########################################
+#
+            </SeparatorMessage>
+        </PropertyGroup>
+
+        <Message Text="Creating the Ghyston .editorconfig file in '$(MSBuildProjectDirectory)'" Importance="high" />
+
+        <Copy
+                SourceFiles="$(MSBuildThisFileDirectory)..\content\.editorconfig"
+                DestinationFolder="$(MSBuildProjectDirectory)"
+                SkipUnchangedFiles="false"
+                UseHardlinksIfPossible="false"
+        />
+
+        <Message Text="Applying overrides from $(EditorConfigOverrides)" Importance="high" Condition="Exists($(EditorConfigOverrides))" />
+
+        <ItemGroup>
+            <OverrideContent Include="$([System.IO.File]::ReadAllText($(EditorConfigOverrides)))" Condition="Exists($(EditorConfigOverrides))"/>
+        </ItemGroup>
+        <WriteLinesToFile
+                File="$(EditorConfigFile)"
+                Lines="$(SeparatorMessage)"
+                Overwrite="false"
+                Condition="Exists($(EditorConfigOverrides))"
+        />
+        <WriteLinesToFile
+                File="$(EditorConfigFile)"
+                Lines="@(OverrideContent)"
+                Overwrite="false"
+                Condition="Exists($(EditorConfigOverrides))"
+        />
+    </Target>
+
+    <ItemGroup>
+        <None Remove="$(MSBuildThisFileDirectory)..\contentFiles\any\netstandard2.1\.editorconfig" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>
