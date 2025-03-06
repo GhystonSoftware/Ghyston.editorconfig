@@ -15,13 +15,7 @@
         </PropertyGroup>
 
         <Message Text="Creating the Ghyston .editorconfig file in '$(MSBuildProjectDirectory)'" Importance="high" />
-
-        <Copy
-                SourceFiles="$(MSBuildThisFileDirectory)..\content\.editorconfig"
-                DestinationFolder="$(MSBuildProjectDirectory)"
-                SkipUnchangedFiles="false"
-                UseHardlinksIfPossible="false"
-        />
+        <Copy SourceFiles="$(MSBuildThisFileDirectory)..\content\.editorconfig" DestinationFolder="$(MSBuildProjectDirectory)" />
 
         <Message Text="Applying overrides from $(EditorConfigOverrides)" Importance="high" Condition="Exists($(EditorConfigOverrides))" />
 
@@ -31,13 +25,11 @@
         <WriteLinesToFile
                 File="$(EditorConfigFile)"
                 Lines="$(SeparatorMessage)"
-                Overwrite="false"
                 Condition="Exists($(EditorConfigOverrides))"
         />
         <WriteLinesToFile
                 File="$(EditorConfigFile)"
                 Lines="@(OverrideContent)"
-                Overwrite="false"
                 Condition="Exists($(EditorConfigOverrides))"
         />
     </Target>
