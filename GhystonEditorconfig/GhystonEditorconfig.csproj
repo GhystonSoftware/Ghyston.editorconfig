@@ -6,9 +6,11 @@
         <PackageId>Ghyston.editorconfig</PackageId>
         <Version>1.0.0</Version>
         <Company>Ghyston</Company>
-        <Authors>Ghyston, Harry Cruse</Authors>
-        <Copyright>Copyright (c) 2025 Ghyston.</Copyright>
+        <Authors>Ghyston</Authors>
+        <Copyright>Copyright (c) 2025 Ghyston Ltd</Copyright>
         <Description>Distributes a shared .editorconfig file containing the rules we use on Ghyston projects.</Description>
+        <PackageProjectUrl>https://github.com/GhystonSoftware/Ghyston.editorconfig</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/GhystonSoftware/Ghyston.editorconfig</RepositoryUrl>
         <Tags>editorconfig, Ghyston</Tags>
         <PackageReadmeFile>readme.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
