@@ -4,30 +4,24 @@
         <Nullable>enable</Nullable>
 
         <PackageId>Ghyston.editorconfig</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.1.0</Version>
         <Company>Ghyston</Company>
         <Authors>Ghyston</Authors>
         <Copyright>Copyright (c) 2025 Ghyston Ltd</Copyright>
         <Description>Distributes a shared .editorconfig file containing the rules we use on Ghyston projects.</Description>
         <PackageProjectUrl>https://github.com/GhystonSoftware/Ghyston.editorconfig</PackageProjectUrl>
         <RepositoryUrl>https://github.com/GhystonSoftware/Ghyston.editorconfig</RepositoryUrl>
-        <Tags>editorconfig, Ghyston</Tags>
-        <PackageReadmeFile>readme.md</PackageReadmeFile>
+        <PackageTags>editorconfig, Ghyston</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <NoDefaultExcludes>true</NoDefaultExcludes>
     </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
 
     <ItemGroup>
         <None Include="build\Ghyston.editorconfig.props" Pack="true" PackagePath="build\" />
         <None Include=".editorconfig" Pack="true" />
-        <None Include="..\readme.md" Pack="true" PackagePath="\"/>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>
