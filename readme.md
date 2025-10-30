@@ -21,7 +21,7 @@ You can view the default `.editorconfig` file [here](https://github.com/GhystonS
 - Ignore the generated `.editorconfig` file from git, by adding `/*/.editorconfig` to your `.gitignore`
   (assuming you only want to ignore the `.editorconfig` files one level below the git root, which is usually where your
   `.csproj` files are)
-- You also need to install the beta version of [Stylecop.Analyzers](https://github.com/DotNetAnalyzers/StyleCopAnalyzers) from NuGet
+- You also need to install the **beta** version of [Stylecop.Analyzers](https://github.com/DotNetAnalyzers/StyleCopAnalyzers) from NuGet
 - Make sure your build pipeline runs the following two commands, to ensure that all rules are followed:
   - `dotnet format style --verify-no-changes`
   - `dotnet format analyzers --verify-no-changes`
