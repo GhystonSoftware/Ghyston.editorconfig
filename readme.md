@@ -9,8 +9,7 @@ formatting rules have been disabled.
 It's not possible for a `.editorconfig` file to be referenced/extended from a NuGet package, so we take the approach of
 copying the `.editorconfig` file into the project at build time.
 
-A lot of the rules come from [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/), which is a
-dependency of this package. There is no need to install it separately.
+A lot of the rules come from [StyleCop.Analyzers](https://www.nuget.org/packages/StyleCop.Analyzers/), which needs to be installed separately.
 
 You can view the default `.editorconfig` file [here](https://github.com/GhystonSoftware/Ghyston.editorconfig/blob/main/GhystonEditorconfig/.editorconfig).
 
